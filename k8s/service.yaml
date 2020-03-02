@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: coolapp
+spec:
+  selector:
+    app: coolapp
+    version: v1
+  ports:
+    - protocol: TCP
+      port: 8080

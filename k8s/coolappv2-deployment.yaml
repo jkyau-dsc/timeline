@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coolapp-v2
+  labels:
+    app: coolapp
+    version: v2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: coolapp
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: coolapp
+        version: v2
+    spec:
+      containers:
+      - name: coolapp
+        image: coolapp:latest
+        imagePullPolicy: Never
+        command: ["/app/main"]
+        args: ["v2"]
+        ports:
+        - containerPort: 8080
